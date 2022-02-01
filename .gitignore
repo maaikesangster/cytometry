@@ -1,6 +1,6 @@
 *.fcs
 2*.py
-2*/
+2021*/
 __pycache__/
 analysis*.py
 analysis210629.py
