@@ -32,7 +32,7 @@ tubes = []
 
 #load first data set
 #specify main folder
-main_folder = '220114/2022-01-14_at_04-49-28pm'
+main_folder = 'example_files'
 #list all flow cytometry files in main folder
 files = listdir(f'{main_folder}')
 files.sort()

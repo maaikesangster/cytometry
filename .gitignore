@@ -1,6 +1,10 @@
-*.fcs
+1.fcs
+2.fcs
+2021-01-08_at_03-42-02pm-2.fcs
+2021-01-08_at_03-42-02pm-3.fcs
+2021-01-08_at_03-42-02pm-4.fcs
 2*.py
-2021*/
+2*/
 __pycache__/
 analysis*.py
 analysis210629.py
