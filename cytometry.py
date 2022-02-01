@@ -12,6 +12,9 @@ from cytoflow.utility.cytoflow_errors import CytoflowError
 
 
 def set_figure(dpi=200, axes=5, xtick=5, ytick=5):
+    """
+    improve figure as created by cytoflow
+    """
     import matplotlib
     matplotlib.rc('figure', dpi = dpi)
     matplotlib.rc('axes', labelsize=axes)
@@ -19,6 +22,10 @@ def set_figure(dpi=200, axes=5, xtick=5, ytick=5):
     matplotlib.rc('ytick', labelsize=ytick)
     
 def set_names(area = False):
+   """
+   since FC strings are very long and complicated,
+   set some common channel names as variables
+   """
    FSC_H = 'Forward Scatter (FSC-HLin)'
    if area:
        FSC_A = 'Forward Scatter Area (FSC-ALin)'
