@@ -31,4 +31,4 @@ test_files/
 test_venus.py
 .ipynb_checkpoints/
 ADM_09SEP2020_181310.VIA.FCS
-
+*.odt
