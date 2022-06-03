@@ -207,6 +207,24 @@ def load_bioreactor_cytometry(main_folder, df):
     ex = import_op.apply()
     
     return ex
+
+def fractions_over_time(ex, column, value, nvalue, name_dust, time_dust):
+    df = pd.DataFrame(columns={'time','bioreactor','fraction', 'number'})
+    sample_dust = ex.subset('sample', name_dust)
+    sample_dust = sample_dust.subset('time', time_dust)
+    for bioreactor in ex.data['sample'].unique():
+        sample = ex.subset('sample', bioreactor)
+        for time in sample.data['time'].unique():
+            timepoint = sample.subset('time', time)
+    
+            fraction_scarlet = fraction(timepoint, sample_dust, column, value, nvalue)
+            number_scarlet = number(timepoint, column, value)
+            df2 = pd.DataFrame(data={'time':[time], 'bioreactor':[bioreactor], 'fraction':[fraction_scarlet],
+                                     'number':[number_scarlet]},
+                               )
+            df = pd.concat([df, df2], ignore_index=True)
+    return df
+            
         
         
  
