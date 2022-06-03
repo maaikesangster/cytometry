@@ -183,4 +183,30 @@ def expected_fraction(experiment, column, value, nvalue, scarlet, cerulean, dust
      scarlet / (df_scarlet['volume_scarlet'] * scarlet + 
                 (1-df_scarlet['volume_scarlet'])*WT))
     return df_scarlet
+
+
+def load_bioreactor_cytometry(main_folder, df):
+    tubes = []
+    files = listdir(main_folder)
+    if 'output' in files:
+        files.remove('output')
+    for file in files:
+        try:
+            bioreactor = int(df.loc[df['file']==file]['bioreactor'])
+            time = float(df.loc[df['file']==file]['time'])
+            tube = flow.Tube(file = f'{main_folder}/{file}',
+                         conditions={'sample':bioreactor, 'time':time})
+            tubes.append(tube)
+        except TypeError:
+            print(f'{file} not known')
+        
+       
+        
+    
+    import_op = flow.ImportOp(tubes=tubes,conditions={'sample':'int','time':'float'})
+    ex = import_op.apply()
+    
+    return ex
+        
+        
  
